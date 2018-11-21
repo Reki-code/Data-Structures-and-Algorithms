@@ -1,55 +1,34 @@
 #include "common.h"
 
-static void admin_menu(void)
+void carry(Userinfo u, int choice);
+void carry(__attribute__((unused))Userinfo u, int choice)
 {
-        printf("admin menu\n");
-        return ;
-}
-
-static void guest_menu(void)
-{
-        printf("guest menu\n");
-        return ;
-}
-
-void display_menu(Userinfo u)
-{
-        if (u->group == admin){
-                admin_menu();
-        } else {
-                guest_menu();
+        switch(choice) {
+                case searchLocation:
+                
+                break;
+                case shortPathPrint:
+                
+                break;
+                case allPathPrint:
+                
+                break;
+                case bestPath:
+                
+                break;
+                case infomationPrint:
+                
+                break;
+                case postInfomation:
+                
+                break;
+                case manageAttraction:
+                
+                break;
         }
         return ;
 }
-bool check_choice(Userinfo u, int ch)
-{
-        bool flag = true;
-        if (u->group == admin) {
-                if (1 < ch && ch < 10) {
-                        flag = true;
-                } else {
-                        flag = false;
-                }
-        } else {
-                if (1 < ch && ch < 5) {
-                        flag = true;
-                } else {
-                        flag = false;
-                }
-        }
 
-        return flag;
-}
-
-enum CHOICE get_choice(Userinfo u)
-{
-        int ch;
-        do {
-                printf("get choice\n");
-                scanf("%d", &ch);
-        } while (check_choice(u, ch) == false);
-        return ch;
-}
 int main( )
 {
         // load_info
@@ -64,6 +43,7 @@ int main( )
                         // get_choice
                         choice = get_choice(user);
                         // play 
+                        carry(user, choice);
 
                 } while (choice != logout && choice != quit);
         } while (choice == logout);
